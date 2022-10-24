@@ -1,0 +1,139 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+}
+
+#header-container{
+    background-color: blueviolet;
+    text-align: center;
+    height: 15vh;
+    margin-top: 0px;
+    border: 3px solid snow;
+}
+
+.header{
+    margin-top: 40px;
+}
+
+#score-board{
+    margin-top: 20px;
+    width: 40%;
+    font-size: 20px;
+}
+
+#player-container{
+        
+           display: flex;
+           justify-content: center;
+           align-items: center;
+}
+
+
+.player{
+    
+     margin-top: 0px;
+     justify-content: center;
+}
+
+
+.circle{
+  
+    filter: invert(100%);
+    position: relative;
+    transition: all 0.7s ease;
+
+}
+
+.rock{  
+    padding: 10px;
+    background-color: aliceblue;
+    border: 3px solid blueviolet;
+    height: 9vh;
+    width: 9vh;
+    border-radius: 50px;
+    position: relative;
+    left: 11px;
+    bottom: 450px;
+    scale: 1.2;
+
+}
+
+.paper{
+    padding: 10px;
+    background-color: aliceblue;
+    border: 3px solid blueviolet;
+    height: 9vh;
+    width: 9vh;
+    border-radius: 50px;
+    position: relative;
+    left: 695px;
+    bottom: 543px;
+    scale: 1.2;
+
+}
+
+.scissors{
+    padding: 10px;
+    background-color: aliceblue;
+    border: 3px solid blueviolet;
+    height: 9vh;
+    width: 9vh;
+    border-radius: 50px;
+    position: relative;
+    left: 352px;
+    bottom: 980px;
+    scale: 1.2;
+
+}
+
+.h:hover{
+
+    border-color: crimson;
+    box-shadow: 2px 3px;
+    scale: 1.4;
+}
+
+#message{
+    text-align: center;
+    position: relative;
+    top: 410px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: chartreuse;
+}
+
+#message2{
+    text-align: center;
+    position: relative;
+    top: 410px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: crimson;
+}
+
+.c{
+    display: flex;
+    justify-content: center;
+}
+
+.glowin{
+    
+    transform: scale(1.2);
+    border-radius: 500px;
+    box-shadow: 0px 0px 200px blueviolet;
+
+}
+
+.glolose{
+    
+    transform: scale(1.2);
+    border-radius: 500px;
+    box-shadow: 0px 0px 200px cyan;
+
+}
+
+

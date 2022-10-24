@@ -1,24 +1,34 @@
-
+//CORE FUNCTIONS 
 const cchoice = ['rock','paper', 'scissors'];
 
-function getComputerChoice(){
+function getComputerChoice(){  //computer choses between 3 choices from array above .
 
-    const randomchoice = Math.floor(Math.random() * cchoice.length);
+    const randomchoice = Math.floor(Math.random() * cchoice.length); 
     return cchoice[randomchoice];
 }
+ 
+let playerselection = null;     //player input variable.
+let computerselection = null;  //computer input variable.
+let computerpoint = 0;        //player score variable.
+let playerpoint =0;          // computer score variable.
+let time = 0;
+const pscore = document.querySelector(".pscore");
+const cscore = document.querySelector(".cscore");
+const rock   = document.querySelector(".rock");
+const paper  = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+const win = document.querySelector("#message");
+const lose = document.querySelector("#message2");
+const circle = document.querySelector(".circle");
+const rem = document.querySelector('.btn');
 
-let playerselection = null;
-let computerselection = null;
-let computerpoint = 0;
-let playerpoint =0;
-
-function playround(playerselection,computerselection){
+function playround(playerselection,computerselection){ // play a round of rock paper scissors.
 
     console.log(playerselection);
     console.log(computerselection);
 
 
-        if(playerselection === computerselection){
+        if(playerselection === computerselection){  //iterates through every combination of choices to check for winner.
             return "It's a Tie.";
         }
         
@@ -50,35 +60,63 @@ function playround(playerselection,computerselection){
             return 'You lose, scissors beats paper.';
         }  
     }
+      
+      
+      rock.addEventListener('click',function(e){
+            playerselection = 'rock';
+            game();
+      });
 
-    function game(rounds){
+      paper.addEventListener('click',function(e){
+        playerselection = 'paper';
+        game();
+      });
+      
+      scissors.addEventListener('click',function(e){
+        playerselection = 'scissors';
+        game();
+      });
+       
+      pscore.textContent = `Player Points: ${playerpoint}`   ;
+      cscore.textContent = 'Computer Points:' + ' ' + computerpoint;
+      
+        
+        
 
-        for(i = 1; i <= rounds; i++){
+function game(){ //play a game consisting of no. of rounds selected  by user.
+        
+       computerselection = getComputerChoice();
 
-           playerselection = prompt('Select: rock,paper,scissors');
-           computerselection= getComputerChoice();
-           console.log(playround(playerselection,computerselection));
+        playround(playerselection,computerselection);
 
-        }
-        if(playerpoint > computerpoint){
+        pscore.textContent = `Player Points: ${playerpoint}`   ;
+        cscore.textContent = `Computer Points: ${computerpoint}` ;
+        time ++;
+          
+        if(time === 5){
+
+         if(playerpoint > computerpoint){ // compare both the scores and declare a winner.
             
-            console.log('player' + ' ' + playerpoint);
-            console.log('computer' + ' ' + computerpoint);
-            return 'Congratulations! You Won The Game.';
+            win.textContent = 'You Win';
+            circle.classList.add('glowin')
+            rem.remove();
+        
         }
         else if(playerpoint === computerpoint){
-          
-            console.log('player' + ' ' + playerpoint);
-            console.log('computer' + ' ' + computerpoint);
-            return "It's A Tie";
+            win.textContent = 'TIE';
+            rem.remove();
+           
         }
         else if(playerpoint < computerpoint){
-
-            console.log('player' + ' ' + playerpoint);
-            console.log('computer' + ' ' + computerpoint);
-            return 'Better luck next time. You Lost the Game.';
-
+            
+            lose.textContent = 'You Lose';
+            circle.classList.add('glolose');
+            rem.remove();
+           
         }
+
+        return;
+    }
 
     }
 
